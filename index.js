@@ -28,6 +28,8 @@ let yVelocity = 0;
 
 let score = 0;
 
+ const eatSound = new Audio("bruh.mp3");
+
 // game loop
 function drawGame()
 {
@@ -100,7 +102,7 @@ function drawScore()
 {
     ctx.fillStyle = "white";
     ctx.font = "10px Verdana";
-    ctx.fillText("Score " + score, canvas.width - 50, 10);
+    ctx.fillText("Score: " + score, canvas.width - 50, 10);
 }
 
 function clearScreen()
@@ -148,6 +150,7 @@ function checkAppleCollision()
         appleY = Math.floor(Math.random() * tileCount);
         tailLength++;
         score++;
+        eatSound.play();
     }
 }
 
